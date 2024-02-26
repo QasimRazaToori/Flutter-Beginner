@@ -1,0 +1,83 @@
+Main function
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+                                              //First of all you should include dependency in pubspec.yaml >>  get: ^4.6.5
+import 'homeScreen.dart';
+
+                                              //We call the Homepage in MyApp class
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'GatX',
+      home: HomeScreen(),
+    );
+  }
+}
+
+Homepage class
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'next_screen.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("GetX"),
+      ),
+      body: Center(
+        child: Container(
+          child: ElevatedButton(
+            onPressed: () {
+              // Use Get.to() for navigation with GetX
+              Get.to(() => NextScreen());
+            },
+            child: Center(
+              child: Text("Next Screen"),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+Nextpage Class code 
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class NextScreen extends StatelessWidget {
+  const NextScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text('Getx'),
+        ),
+      ),
+      body: Center(
+        child: Container(
+          child: ElevatedButton(
+            onPressed: () {
+              // Use Get.back() to navigate back to the previous screen
+              Get.back();
+            },
+            child: Center(
+              child: Text("Back to Previous Screen"),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
