@@ -1,0 +1,81 @@
+///////////////////////////////////////////////////////////////////////////////Home page code/////////////////////////////////////////////////////////////////////////////////
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'next_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Screen'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+                                                  // Navigate to NextScreen when the button is pressed
+            Get.to(NextScreen(), arguments: {
+              "Name": "Ali",
+              6: 56,                               //That data would be transfer to the next page
+              "Village": "Alizai Lower Kurram",
+              "City": "Parachinar",
+            });
+          },
+          child: Text("Go to Next Screen"),
+        ),
+      ),
+    );
+  }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////NextPage//////////////////////////////////////////////////////////////////////////////
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class NextScreen extends StatelessWidget {
+  const NextScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text('Getx'),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text(Get.arguments["Name"]),
+            Text(Get.arguments["6"]),
+            Text(Get.arguments["Village"]),
+            Text(Get.arguments["City"]),
+            Container(
+              child: Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigate to NextScreen when the button is pressed
+                    Get.back();
+                  },
+                  child: Text("Go to homepage"),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
