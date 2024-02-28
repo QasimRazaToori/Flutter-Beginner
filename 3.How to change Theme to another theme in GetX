@@ -1,0 +1,78 @@
+                                                            Main Function code                                                                             
+
+
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+import 'package:new_aghaz/ChangeThemeMode.dart';
+
+import 'ChangeThemeMode.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'GatX',
+      home: ChangeThemeMode(),
+    );
+  }
+}
+
+                                                        Stateful Class for changing theme                                                                          
+
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class ChangeThemeMode extends StatefulWidget {
+  const ChangeThemeMode({super.key});
+
+  @override
+  State<ChangeThemeMode> createState() => _ChangeThemeModeState();
+}
+
+class _ChangeThemeModeState extends State<ChangeThemeMode> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text('ChangeTheme'),
+        ),
+      ),
+      body: Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Get.changeTheme(ThemeData.dark());
+                },
+                child: Text('DarkMode'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Get.changeTheme(ThemeData.light());
+                },
+                child: Text('Light'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Get.changeTheme(
+                    Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
+                  );
+                },
+                child: Text('SwitchTheme'), // if statement is used in there
+              )
+            ],
+          )),
+    );
+  }
+}
+
