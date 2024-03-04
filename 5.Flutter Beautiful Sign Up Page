@@ -1,0 +1,193 @@
+//////////////////////////////////////////////////////////Home Page/////////////////////////////////////////////////////////////////////////////////////////////////////////
+import 'package:firebaseapp/Screen/SignUpPage.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        // ignore: prefer_const_constructors
+        title: Text("Login Page "),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                  alignment: Alignment.center,
+                  height: 300,
+                  child: Lottie.asset('assets/Animation - 1709291324559.json')),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.email),
+                    prefixIcon: Icon(Icons.email),
+                    hintText: 'Email',
+                    enabledBorder: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.password),
+                    suffixIcon: Icon(Icons.visibility),
+                    hintText: 'Password',
+                    enabledBorder: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Center(
+                  child: Text('Login'),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(child: Card(child: Text('Forget Password'))),
+              SizedBox(
+                height: 30,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => SignUp());
+                },
+                child: Container(
+                  child: Card(
+                    child: Text('Sign up'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////sign Up ////////////////////////////////////////////////////////////////////////////////////////////////
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // ignore: prefer_const_constructors
+        title: Text("Sign Up "),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                  alignment: Alignment.center,
+                  height: 200,
+                  child: Lottie.asset('assets/Animation - 1709291324559.json')),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.person),
+                    prefixIcon: Icon(Icons.person),
+                    hintText: 'User name',
+                    enabledBorder: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.phone),
+                    prefixIcon: Icon(Icons.phone),
+                    hintText: 'Phone Number',
+                    enabledBorder: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.email),
+                    prefixIcon: Icon(Icons.email),
+                    hintText: 'Email',
+                    enabledBorder: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.password),
+                    suffixIcon: Icon(Icons.visibility),
+                    hintText: 'Password',
+                    enabledBorder: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Center(
+                  child: Text('Login'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
